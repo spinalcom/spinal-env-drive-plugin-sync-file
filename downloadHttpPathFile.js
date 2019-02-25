@@ -44,7 +44,7 @@ class SpinalDrive_App_DownloadHttpPathFile extends SpinalDrive_App {
       .title("Do you want download " + f.name.get() + " ?")
       .ariaLabel("Download")
       .clickOutsideToClose(true)
-      .ok("Download!")
+      .ok("Download !")
       .cancel("Cancel");
 
     mdDialog.show(confirm).then(
@@ -52,9 +52,9 @@ class SpinalDrive_App_DownloadHttpPathFile extends SpinalDrive_App {
         f.load((httpPath)=> {
           if (f._info.model_type.get() == "HttpPath") {
             const element = document.createElement("a");
-            const path = httpPath.host + '/' +
+            const path = httpPath.host.get() + '/file/' +
               encodeURIComponent(httpPath.httpRootPath.get()) + '/' +
-              encodeURIComponent(httpPath.httpRoot.get());
+              encodeURIComponent(httpPath.httpPath.get());
             element.setAttribute("href", path);
             element.setAttribute("download", f.name.get());
             element.style.display = "none";
