@@ -1,0 +1,17 @@
+{
+  "name": "spinal-env-drive-plugin-sync-file",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "spinal-env-drive-core": "git+https://github.com/spinalcom/spinal-env-drive-core.git"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "postinstall": "npm run create_plugin_template",
+    "create_plugin_template": "create_plugin_template"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
