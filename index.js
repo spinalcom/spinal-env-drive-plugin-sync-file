@@ -31,10 +31,20 @@ function concat_lib(lib) {
   }
 }
 concat_lib(require("./downloadHttpPathFile.js"));
+concat_lib(require("./uploadHttpPathFile.js"));
 
 window.spinalDrive_Env.add_applications(
   "FileExplorer",
   new module.exports.FileExplorerDownloadHttpPathFile()
 );
+console.log(module.exports);
+
+window.spinalDrive_Env.add_applications(
+  "FileExplorerCurrDir",
+  new module.exports.FileExplorerUploadHttpPathFile()
+);
+
 window.spinalDrive_Env.context_file_exp_app_icon["HttpPath"] =
   "content_copy";
+window.spinalDrive_Env.context_file_exp_app_icon["Synchronized Directory"] =
+  "folder_shared";
