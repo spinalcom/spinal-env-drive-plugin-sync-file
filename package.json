@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "spinal-env-drive-core": "git+https://github.com/spinalcom/spinal-env-drive-core.git"
   },
   "devDependencies": {},
