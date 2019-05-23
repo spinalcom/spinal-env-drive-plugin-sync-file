@@ -47,13 +47,17 @@ class SpinalDrive_App_UploadHttpPathFile extends SpinalDrive_App {
 
     const file = window.FileSystem._objects[fs_path[fs_path.length - 1]._server_id];
     const info = file._info;
+    const username = obj.scope.user.username;
     const path_array = [];
+    const folderhomeName = `${username} (home)`
     for (let idx = 0; idx < fs_path.length; idx++) {
       const elem = fs_path[idx];
-      if (elem.name === "home") {
+      if (elem.name === "home" || elem.name === folderhomeName) {
         path_array.push("/__users__");
-        path_array.push(obj.scope.user.username);
-      } else {
+        path_array.push(username);
+      } else if (elem.name === "root") {
+         path_array.push("/");
+     } else {
         path_array.push(elem.name);
       }
     }
